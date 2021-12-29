@@ -35,15 +35,12 @@ if __name__ == '__main__':
 
     sour_dir = None
     dest_dir = None
-    del_non_sync = None
     if op == 'push':
         sour_dir = os.path.normpath(os.path.join(syncing_dir, config_dic['destiny']))
         dest_dir = os.path.normpath(os.path.join(syncing_dir, config_dic['source']))
-        del_non_sync = False
     elif op == 'pull':
         sour_dir = os.path.normpath(os.path.join(syncing_dir, config_dic['source']))
         dest_dir = os.path.normpath(os.path.join(syncing_dir, config_dic['destiny']))
-        del_non_sync = True
     else:
         Exception(op + '为非法操作')
 
@@ -57,5 +54,5 @@ if __name__ == '__main__':
     if 'sync_paths' in config_dic.keys():
         sync_paths = config_dic['sync_paths']
 
-    syncer = pathutils.PathSyncer(sour_dir, dest_dir, del_non_sync, sync_paths, ignore_paths)
+    syncer = pathutils.PathSyncer(sour_dir, dest_dir, sync_paths, ignore_paths)
     syncer.sync()
