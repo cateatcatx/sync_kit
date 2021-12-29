@@ -1,0 +1,4 @@
+[submodule "decoherence"]
+	path = decoherence
+	url = https://github.com/cateatcatx/decoherence_py.git
+	branch = master
